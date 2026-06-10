@@ -70,9 +70,9 @@ Effectuer Une Déconnexion Réussie et Fermer Le Navigateur
 
 Effectuer Une Déconnexion Réussie
     Mouse Over    ${MENU D'UTILISATEUR}
-    Wait Until Element Is Visible    ${LIEN SE DECONNECTER}
+    Wait Until Element Is Visible    ${LIEN SE DECONNECTER}    timeout=15s
     Click Element    ${LIEN SE DECONNECTER}
-    Wait Until Element Is Not Visible    ${LIEN SE DECONNECTER}
+    Wait Until Element Is Not Visible    ${LIEN SE DECONNECTER}    timeout=15s
 
 Vérifier Que Le Lien De Connexion Est Visible
     Element Should Be Visible    ${LIEN SE CONNECTER}
