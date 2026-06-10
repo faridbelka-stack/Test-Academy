@@ -17,7 +17,7 @@ ${CHAMP MOT DE PASSE}                           name=password
 ${BOUTON VALIDER}                               css=.homey_login_button
 ${TITRE TABLEAU DE BORD}                        Tableau de bord - Livraison 3
 ${MENU D'UTILISATEUR}                           //*[@id="homey_nav_sticky"]/div/div/div[3]/div
-${LIEN SE DECONNECTER}                          //*[@id="homey_nav_sticky"]/div/div/div[3]/div/div/ul/li[8]/a
+${LIEN SE DECONNECTER}    xpath=//a[contains(text(),'Se déconnecter') or contains(text(),'Log out') or contains(text(),'Déconnexion')]
 ${TITRE ACCUEIL}                                Accueil - Livraison 3
 ${ESPACE POUR AFFICHER LES ERREURS}             css=#modal-login .error
 ${MESSAGE ERREUR NOM UTILISATEUR}               Invalid username or email
@@ -70,10 +70,11 @@ Effectuer Une Déconnexion Réussie et Fermer Le Navigateur
 
 Effectuer Une Déconnexion Réussie
     Wait Until Element Is Visible    ${MENU D'UTILISATEUR}    timeout=15s
-    Execute Javascript    document.querySelector('#homey_nav_sticky .sub-menu').style.display='block'
+    Click Element                    ${MENU D'UTILISATEUR}
     Wait Until Element Is Visible    ${LIEN SE DECONNECTER}    timeout=15s
     Click Element                    ${LIEN SE DECONNECTER}
     Wait Until Element Is Not Visible    ${LIEN SE DECONNECTER}    timeout=15s
+
 
 Vérifier Que Le Lien De Connexion Est Visible
     Element Should Be Visible    ${LIEN SE CONNECTER}
